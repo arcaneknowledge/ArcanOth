@@ -14,7 +14,7 @@
 <!-- particles.js container -->
 
 <div class="container-fluid">
-<div id="particles-js"></div>
+<!-- <div id="particles-js"></div> -->
 <div class="row">
 <div class="col s12 center"><img src="https://avatars2.githubusercontent.com/u/47725392?s=200&v=4"></div>
 </div>
@@ -24,26 +24,18 @@
 <div class="col s12 center">Welcome to the demo of ArcaneOth</div>
 </div>
 
-<div class="row">
-    <section>
-      <p class='section-head'>Model Output</p>
+<div class="row" style="background-color:brown;">
+ <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
 
-      <div id="file-container">
-        Upload an image: <input type="file" id="files" name="files[]" multiple />
-      </div>
-
-      <div id="predictions"></div>
-
-      <img style="display: none" id="cat" src="cat.jpg" width=224 height=224 />
-</section>
 </div>
 
 </div>
 <!-- scripts -->
-<script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-
+-->
+<script src="{{ url_for('static', filename='js/learn.js') }}"></script>
+ <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/1.1.0/tf.min.js"></script>
