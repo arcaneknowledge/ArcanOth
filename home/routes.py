@@ -7,6 +7,6 @@ from models import *
 from forms import *
 from config import Config
 
-@home_bp('/')
+@home_bp.route('/')
 def home_page():
     return render_template('pages/home.html')

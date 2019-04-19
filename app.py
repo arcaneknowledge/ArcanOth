@@ -3,7 +3,8 @@
 #----------------------------------------------------------------------------#
 
 from flask import Flask, render_template, request
-# from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
+from config import *
 
 import os
 
@@ -15,28 +16,15 @@ app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 
-
+from auth import auth_bp
+app.register_blueprint(auth_bp)
+from errors import errors_bp
+app.register_blueprint(errors_bp)
+from home import home_bp
+app.register_blueprint(home_bp)
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
-
-
-@app.route('/')
-def home():
-    return render_template('pages/home.html')
-
-
-@app.route('/login')
-def login():
-    form = LoginForm(request.form)
-    return render_template('forms/login.html', form=form)
-
-
-@app.route('/register')
-def register():
-    form = RegisterForm(request.form)
-    return render_template('forms/register.html', form=form)
-
 
 #----------------------------------------------------------------------------#
 # Launch.
@@ -45,3 +33,6 @@ def register():
 # Default port:
 if __name__ == '__main__':
     app.run()
+
+import forms
+import models
