@@ -11,7 +11,7 @@ import os
 # App Config.
 #----------------------------------------------------------------------------#
 
-app = Flask(__name__, static_url_path="static")
+app = Flask(__name__)
 app.config.from_object('config')
 #db = SQLAlchemy(app)
 
